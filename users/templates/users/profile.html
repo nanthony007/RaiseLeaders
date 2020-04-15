@@ -1,0 +1,31 @@
+{% extends 'main_site/header.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  {% csrf_token %}
+
+  <div class="row">
+    <div class="col">
+      <h1>Your Profile</h1>
+      <h6>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Dolorum dolor doloremque vitae nesciunt dicta numquam! Vitae fuga veritatis perferendis. Illum?
+      </h6>
+    </div>
+    <div class="col">
+      <div class="page-header">
+        <h2>
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          {{ user.username }} 
+        </h2>
+        <h4>
+          Email: <small>{{ user.email }}</small>
+        </h4>
+        <p>Update your profile <a href="{% url 'profile_update' %}">here.</a> Set your team name and upload an image!</p>
+      </div>
+</div>
+
+
+{% endblock %}

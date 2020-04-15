@@ -1,0 +1,18 @@
+{% extends 'main_site/header.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+      <fieldset class="form-group">
+        <legend>Update Profile</legend>
+        {% csrf_token %}
+        {{ u_form.as_p }}
+        {{ p_form.as_p }}
+      </fieldset>
+      <button class="btn" type="submit">Update</button>
+    </form>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'main_site/header.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <h3>Login</h3>
+  <form method="POST" style="color: rgb(95, 94, 117)">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Login</button>
+    <small class="text-muted ml-2">
+      <a href="{% url 'password_reset' %}">Forgot Password?</a>
+    </small>
+  </form>
+  <small class="text-muted">Need An Account? <a href="{% url 'register' %}">Sign Up Now</a></small>
+</div>
+
+{% endblock %}
