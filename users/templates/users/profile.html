@@ -1,5 +1,4 @@
 {% extends 'main_site/header.html' %}
-{% load static %}
 
 {% block content %}
 
@@ -17,7 +16,7 @@
     <div class="col">
       <div class="page-header">
         <h2>
-          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          <img class="account-img" src="{{ user.profile.image.url }}">
           {{ user.username }} 
         </h2>
         <h4>
