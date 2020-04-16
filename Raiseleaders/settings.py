@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -173,3 +174,4 @@ PWA_APP_LANG = 'en-US'
 PWA_SERVICE_WORKER_PATH = 'main_site/static/main_site/js/sw.js'
 PWA_APP_DEBUG_MODE = True
 
+django_heroku.settings(locals())
