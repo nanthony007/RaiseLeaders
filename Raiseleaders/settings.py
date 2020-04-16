@@ -77,12 +77,6 @@ WSGI_APPLICATION = 'Raiseleaders.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -152,22 +146,19 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 PWA_APP_NAME = 'Raise Leaders'
 PWA_APP_DESCRIPTION = "Taekwondo."
-PWA_APP_THEME_COLOR = '#0A0302'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
 PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
 PWA_APP_ORIENTATION = 'any'
 PWA_APP_START_URL = '/'
 PWA_APP_ICONS = [
     {
         'src': STATIC_URL + 'main_site/img/RLBW.jpg',
-        'sizes': '300x300'
+        'sizes': '200x57'
     }
 ]
 PWA_APP_ICONS_APPLE = [
     {
         'src': STATIC_URL + 'main_site/img/RLBW.jpg',
-        'sizes': '300x300'
+        'sizes': '200x57'
     }
 ]
 PWA_APP_SPLASH_SCREEN = [
@@ -178,7 +169,7 @@ PWA_APP_SPLASH_SCREEN = [
 ]
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'
-PWA_SERVICE_WORKER_PATH = 'main_site/static/main_site/js/sw.js'
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'main_site/static/main_site/js/sw.js')
 PWA_APP_DEBUG_MODE = True
 
 django_heroku.settings(locals())
