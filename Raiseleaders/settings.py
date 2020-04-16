@@ -148,7 +148,7 @@ PWA_APP_NAME = 'Raise Leaders'
 PWA_APP_DESCRIPTION = "Taekwondo."
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/login'
+PWA_APP_START_URL = '/'
 PWA_APP_ICONS = [
     {
         'src': STATIC_URL + 'main_site/img/darklogo.jpg',
