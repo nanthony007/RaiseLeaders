@@ -148,22 +148,22 @@ PWA_APP_NAME = 'Raise Leaders'
 PWA_APP_DESCRIPTION = "Taekwondo."
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
+PWA_APP_START_URL = '/login'
 PWA_APP_ICONS = [
     {
-        'src': STATIC_URL + 'main_site/img/RLBW.jpg',
+        'src': STATIC_URL + 'main_site/img/darklogo.jpg',
         'sizes': '200x57'
     }
 ]
 PWA_APP_ICONS_APPLE = [
     {
-        'src': STATIC_URL + 'main_site/img/RLBW.jpg',
+        'src': STATIC_URL + 'main_site/img/darklogo.jpg',
         'sizes': '200x57'
     }
 ]
 PWA_APP_SPLASH_SCREEN = [
     {
-        'src': STATIC_URL + 'main_site/img/RLBW.jpg',
+        'src': STATIC_URL + 'main_site/img/RLBWlogo.jpg',
         'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
     }
 ]

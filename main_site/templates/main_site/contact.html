@@ -1,14 +1,51 @@
 {% extends 'main_site/header.html' %}
 
 {% block content %}
-<div class="container">
-    <h4>Page  for conctact form and/or info</h4>
-    <div class="row">
-        <div class="col">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Nulla facere cupiditate consectetur, vitae consequuntur earum reiciendis officia facilis in magnam.
+  <!-- Contact Us Section -->
+  <section class="Material-contact-section section-padding section-dark">
+    <div class="container">
+        <div class="row">
+            <!-- Section Titile -->
+            <h1>Contact Page</h1>
+        </div>
+        <div class="row">
+            <!-- Section Titile -->
+            <div class="col-md-6 mt-3">
+              <p>Fake form to the right.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo facilis nobis, et ab reprehenderit non tenetur aperiam, reiciendis voluptatem ipsum quidem incidunt! Saepe sed reiciendis inventore aut dolore, est aperiam molestias voluptates harum et distinctio sit illo odit iste repellat recusandae impedit similique. Perspiciatis id enim quis consequatur, magnam consequuntur?</p>
+            </div>
+              <!-- contact form -->
+              <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
+                <form method="post" id="contactForm" name="contact-form">
+                    <!-- Name -->
+                    <div class="form-group label-floating">
+                      <label class="control-label" for="name">Name</label>
+                      <input class="form-control" id="name" type="text" name="name" required data-error="Please enter your name">
+                    </div>
+                    <!-- email -->
+                    <div class="form-group label-floating">
+                      <label class="control-label" for="email">Email</label>
+                      <input class="form-control" id="email" type="email" name="email" required data-error="Please enter your Email">
+                    </div>
+                    <!-- Subject -->
+                    <div class="form-group label-floating">
+                      <label class="control-label">Subject</label>
+                      <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject">
+                    </div>
+                    <!-- Message -->
+                    <div class="form-group label-floating">
+                        <label for="message" class="control-label">Message</label>
+                        <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
+                    </div>
+                    <!-- Form Submit -->
+                    <div class="form-submit mt-5">
+                        <button class="btn btn-dark" type="submit" id="form-submit"> Send Message</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+  </section>
 
 {% endblock %}
