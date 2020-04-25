@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
-    #'pwa',
+    'pwa',
     'storages',
 ]
 
@@ -144,32 +144,32 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
-# PWA_APP_NAME = 'Raise Leaders'
-# PWA_APP_DESCRIPTION = "Taekwondo."
-# PWA_APP_DISPLAY = 'standalone'
-# PWA_APP_ORIENTATION = 'any'
-# PWA_APP_START_URL = '/'
-# PWA_APP_ICONS = [
-#     {
-#         'src': STATIC_URL + 'main_site/img/darklogo.jpg',
-#         'sizes': '200x57'
-#     }
-# ]
-# PWA_APP_ICONS_APPLE = [
-#     {
-#         'src': STATIC_URL + 'main_site/img/darklogo.jpg',
-#         'sizes': '200x57'
-#     }
-# ]
-# PWA_APP_SPLASH_SCREEN = [
-#     {
-#         'src': STATIC_URL + 'main_site/img/RLBWlogo.jpg',
-#         'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-#     }
-# ]
-# PWA_APP_DIR = 'ltr'
-# PWA_APP_LANG = 'en-US'
-# PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'main_site/static/main_site/js/sw.js')
-# PWA_APP_DEBUG_MODE = True
+PWA_APP_NAME = 'Raise Leaders'
+PWA_APP_DESCRIPTION = "Taekwondo."
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [
+    {
+        'src': STATIC_URL + 'main_site/img/darklogo.jpg',
+        'sizes': '200x57'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': STATIC_URL + 'main_site/img/darklogo.jpg',
+        'sizes': '200x57'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': STATIC_URL + 'main_site/img/RLBWlogo.jpg',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'main_site/static/main_site/js/sw.js')
+PWA_APP_DEBUG_MODE = True
 
 django_heroku.settings(locals())
