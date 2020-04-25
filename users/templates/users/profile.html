@@ -1,31 +1,104 @@
 {% extends 'main_site/header.html' %}
 
 {% block content %}
+<style type="text/css">
+  .strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 
+  .strike>span {
+    position: relative;
+    display: inline-block;
+  }
+
+  .strike>span:before,
+  .strike>span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: purple;
+  }
+
+  .strike>span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+
+  .strike>span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+</style>
 <div class="container">
   {% csrf_token %}
+  <h1 class="text-center">Your Profile</h1>
 
   <div class="row">
-    <div class="col">
-      <h1>Your Profile</h1>
+    <div class="col-sm-6 py-3">
+      <div class="strike">
+        <span>
+          <h4>Info</h4>
+        </span>
+      </div>
+      <h5>
+        <img class="account-img" src="{{ user.profile.image.url }}">
+        {{ user.username }}
+      </h5>
+      <h5>
+        Email: <small>{{ user.email }}</small>
+      </h5>
+      <p>Update your profile picture <a href="{% url 'profile_update' %}">here</a>!</p>
+    </div>
+    <div class="col-sm-6 py-3">
+      <div class="strike">
+        <span>
+          <h4>Bio</h4>
+        </span>
+      </div>
       <h6>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Dolorum dolor doloremque vitae nesciunt dicta numquam! Vitae fuga veritatis perferendis. Illum?
       </h6>
     </div>
-    <div class="col">
-      <div class="page-header">
-        <h2>
-          <img class="account-img" src="{{ user.profile.image.url }}">
-          {{ user.username }} 
-        </h2>
-        <h4>
-          Email: <small>{{ user.email }}</small>
-        </h4>
-        <p>Update your profile <a href="{% url 'profile_update' %}">here.</a> Set your team name and upload an image!</p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 py-3">
+      <div class="strike">
+        <span>
+          <h4>Stripes</h4>
+        </span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <i class="fas fa-slash"></i>
+        <i class="fas fa-slash"></i>
+        <i class="fas fa-slash"></i>
+        <i class="fas fa-slash"></i>
+      </div>
+    </div>
+    <div class="col-sm-6 py-3">
+      <div class="strike">
+        <span>
+          <h4>Badges</h4>
+        </span>
+      </div>
+      <div class="d-flex justify-content-around">
+        <i class="fas fa-ribbon"></i>
+        <i class="fas fa-certificate"></i>
+        <i class="fas fa-running"></i>
+        <i class="fas fa-walking"></i>
+        <i class="fas fa-swimmer"></i>
+        <i class="fas fa-dumbbell"></i>
       </div>
     </div>
   </div>
+</div>
+
 </div>
 
 {% endblock %}
