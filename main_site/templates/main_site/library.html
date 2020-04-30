@@ -1,49 +1,139 @@
 {% extends 'main_site/header.html' %}
 
 {% block content %}
+<style type="text/css">
+  .strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .strike>span {
+    position: relative;
+    display: inline-block;
+  }
+
+  .strike>span:before,
+  .strike>span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: purple;
+  }
+
+  .strike>span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+
+  .strike>span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+</style>
 <div class="container">
-  <h4>Libary page</h4>
-  <div class="card-deck">
-    <div class="card bg-dark">
-      <img class="card-img-top" src="https://img.youtube.com/vi/ir11kS-A4ng/hqdefault.jpg" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title text-white">360 Jumps</h5>
-        <hr class="bg-white" />
-        <p class="card-text text-white">Description...</p>
-        <a href="https://youtu.be/ir11kS-A4ng" class="btn btn-primary" target="_blank">Go somewhere</a>
-      </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col my-2 mx-2">
+      <div class="card card-image" 
+      style="background-image: url(https://media.mnn.com/assets/images/2015/06/jumbled-letters.jpg.653x0_q80_crop-smart.jpg); 
+      background-repeat: no-repeat">
+
+      <!-- Content -->
+        <div class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>TKD Terminiology</strong></h3>
+            <p>Learn about TKD terms both in English and Korean!</p>
+            <a href="terminology/" class="btn btn-light">Click Here</a>
+          </div>
+          </div>
+        </div>
     </div>
-    <div class="card border-seconday">
-      <img class="card-img-top" src="https://img.youtube.com/vi/ir11kS-A4ng/hqdefault.jpg" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title text-dark">360 Jumps</h5>
-        <hr class="bg-dark" />
-        <p class="card-text text-dark">Description...</p>
-        <a href="https://youtu.be/ir11kS-A4ng" class="btn btn-secondary" target="_blank">Go somewhere</a>
-      </div>
-      <div class="card-footer border-secondary">
-        Updated Today
-      </div>
+    <div class="col my-2 mx-2">
+      <div class="card card-image" 
+      style="background-image: url(https://www.sportssilhouettes.com/content/images/thumbs/0003028_martial-arts-6-sports-decor-silhouette-decals.gif); 
+      background-repeat: no-repeat">
+
+      <!-- Content -->
+        <div class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Kicks & Strikes</strong></h3>
+            <p>Find tips and examples of each kick and hand strike here.</p>
+            <a href="strikes/" class="btn btn-light">Click Here</a>
+          </div>
+          </div>
+        </div>
     </div>
-    <div class="card border-success">
-      <img class="card-img-top" src="https://img.youtube.com/vi/ir11kS-A4ng/hqdefault.jpg" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title text-dark">360 Jumps</h5>
-        <hr class="bg-dark" />
-        <p class="card-text text-dark">Description...</p>
-        <a href="https://youtu.be/ir11kS-A4ng" class="btn btn-success" target="_blank">Go somewhere</a>
-      </div>
-    </div>
-    <div class="card bg-dark">
-      <img class="card-img-top" src="https://img.youtube.com/vi/ir11kS-A4ng/hqdefault.jpg" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title text-white">360 Jumps</h5>
-        <hr class="bg-white" />
-        <p class="card-text text-white">Description...</p>
-        <a href="https://youtu.be/ir11kS-A4ng" class="btn btn-primary" target="_blank">Go somewhere</a>
-      </div>
+    <div class="col my-2 mx-2">
+      <div class="card card-image" 
+      style="background-image: url(https://www.wikihow.com/images/thumb/e/ee/Get-Better-in-Tae-kwon-do-Poomsae-Step-5-Version-2.jpg/aid1540777-v4-728px-Get-Better-in-Tae-kwon-do-Poomsae-Step-5-Version-2.jpg.webp); 
+      background-repeat: no-repeat">
+
+      <!-- Content -->
+        <div class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Poomsae (Forms) </strong></h3>
+            <p>Learn or review all of your forms here.</p>
+            <a href="forms/" class="btn btn-light">Click Here</a>
+          </div>
+          </div>
+        </div>
     </div>
   </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col my-2 mx-2">
+      <div class="card card-image" 
+      style="background-image: url(https://dhalifestyle.com/wp-content/uploads/2019/12/Cover-Photo-672x372.png); 
+      background-repeat: no-repeat">
+
+      <!-- Content -->
+        <div class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Athletic Workouts</strong></h3>
+            <p>Workouts created for any skill level!</p>
+            <a href="workouts/" class="btn btn-light">Click Here</a>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="col my-2 mx-2">
+      <div class="card card-image" 
+      style="background-image: url(https://clip.cookdiary.net/sites/default/files/wallpaper/gymnast-clipart/279111/gymnast-clipart-acrobatic-gymnastics-279111-5830867.gif); 
+      background-repeat: no-repeat">
+
+      <!-- Content -->
+        <div class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Acrobatics</strong></h3>
+            <p>Simple to advanced gymnastics and tricking.</p>
+            <a href="acrobatics/" class="btn btn-light">Click Here</a>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="col my-2 mx-2">
+      <div class="card card-image" 
+      style="background-image: url(https://davidfullerkarate.files.wordpress.com/2017/06/hardwood_lumber_thickness_002.jpg?w=800); 
+      background-repeat: no-repeat">
+
+      <!-- Content -->
+        <div class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Extras</strong></h3>
+            <p>Learn how to hold a board or build your own kicking pad...</p>
+            <a href="extras/" class="btn btn-light">Click Here</a>
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+
 </div>
 
 {% endblock %}
