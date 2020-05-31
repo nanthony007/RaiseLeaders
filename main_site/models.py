@@ -62,8 +62,8 @@ class Resource(models.Model):
     category = models.CharField(choices=CATEGORIES, max_length=25)
     title = models.CharField(max_length=25)
     description = models.CharField(max_length=250)
-    difficulty = models.CharField(choices=DIFFICULTIES, max_length=25)
-    belt_level = models.CharField(choices=BELT_LEVELS, max_length=25)
+    difficulty = models.CharField(choices=DIFFICULTIES, max_length=25, default="Easy")
+    belt_level = models.CharField(choices=BELT_LEVELS, max_length=25, default="White")
     curriculum = models.BooleanField()
-    video_link = models.CharField(max_length=250)
+    video_link_id = models.IntegerField()
 
