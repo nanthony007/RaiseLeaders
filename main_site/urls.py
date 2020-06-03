@@ -13,5 +13,4 @@ urlpatterns = [
     path('library/workouts/', views.workouts, name='workouts'),
     path('library/acrobatics/', views.acrobatics, name='acrobatics'),
     path('library/extras/', views.extras, name='extras'),
-    path('about/', views.about, name='about'),
 ]

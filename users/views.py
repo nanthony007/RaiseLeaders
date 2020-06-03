@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.forms import formset_factory
 
 from django.contrib.auth.models import User
 from .forms import UserRegistrationForm, ProfileUpdateForm, UserUpdateForm
-from main_site.models import Event, AttendanceTracker
 
 
 def register(request):
@@ -15,7 +14,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, 'Account created for ' +
-                            username + '.  You are now able to login.')
+                             username + '.  You are now able to login.')
             return redirect('/')
     else:
         form = UserRegistrationForm()
@@ -25,16 +24,6 @@ def register(request):
 @login_required
 def profile(request):
     if request.method == 'POST':
-        if request.POST['code']:
-            code = request.POST['code']
-            event = get_object_or_404(Event, class_code=code)
-            attend = AttendanceTracker(
-                event=event,
-                attendee=request.user,
-                is_attending=True,
-            )
-            attend.save()
-
         u_form = UserUpdateForm(request.POST or None, instance=request.user)
         p_form = ProfileUpdateForm(
             request.POST or None, request.FILES, instance=request.user.profile)

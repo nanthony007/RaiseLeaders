@@ -45,6 +45,3 @@ def acrobatics(request):
 
 def extras(request):
     return render(request, 'main_site/extras.html')
-
-def about(request):
-    return render(request, 'main_site/about.html')
