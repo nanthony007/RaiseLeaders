@@ -25,6 +25,7 @@
 </head>
 
 <header>
+{% block nav%}
 	<nav class="navbar navbar-expand-md navbar-light bg-white fixed-top py-0">
 		<a class="navbar-brand">
 			<img src="{% static 'main_site/img/RLBW.jpg' %}" alt="No img" style="width: 200px; height: 50px;" />
@@ -59,10 +60,10 @@
 			</ul>
 		</div>
 	</nav>
+{% endblock %}
 </header>
 
-
-<body class="pt-5 mt-5 pb-5 mb-5">
+<body class="mt-5 pt-3">
 	{% if messages %} {% for message in messages %}
 	<div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
 		{{ message }}

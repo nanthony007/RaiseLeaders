@@ -2,18 +2,54 @@
 
 {% block content %}
 
-<div class="container">
-    <form method="POST">
-    <fieldset class="form-group">
-        <legend>Register Today</legend>
+
+<div class="container mt-3">
+<!-- Material form register -->
+<div class="card">
+    <h5 class="card-header elegant-color white-text text-center py-4">
+        <strong>Sign Up</strong>
+    </h5>
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+        <!-- Form -->
+        <form class="text-center" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-    </fieldset>
-    <button class="btn btn-dark" type="submit">Sign Up</button>
-    </form>
-    <div>
-    <small class="text-muted">Already have an account? <a href="{% url 'login' %}">Login</a></small>
+            <div class="form-row">
+                <div class="col">
+                    <!-- First name -->
+                    <div class="md-form">
+                        <input type="text" id="firstName" name="firstName" class="form-control">
+                        <label for="materialRegisterFormFirstName">First name</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Last name -->
+                    <div class="md-form">
+                        <input type="text" id="lastName" name="lastName" class="form-control">
+                        <label for="materialRegisterFormLastName">Last name</label>
+                    </div>
+                </div>
+            </div>
+            <!-- E-mail -->
+            <div class="md-form mt-0">
+                <input type="email" id="email" name="email" class="form-control">
+                <label for="email">E-mail</label>
+            </div>
+            <!-- Password -->
+            <div class="md-form">
+                <input type="password" id="password" name="password" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                <label for="password">Password</label>
+            </div>
+            <!-- Sign up button -->
+            <button class="btn btn-outline-elegant btn-rounded btn-block my-4 waves-effect" type="submit">Register</button>
+        </form>
+        <!-- Form -->
+        <div>
+            <small class="text-muted">Already have an account? <a href="{% url 'login' %}">Login</a></small>
+        </div>
     </div>
+</div>
+<!-- Material form register -->
 </div>
 
 {% endblock %}
