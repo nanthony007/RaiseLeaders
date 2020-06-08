@@ -17,7 +17,7 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['email']
 
 
 class ProfileUpdateForm(forms.ModelForm):
@@ -26,8 +26,6 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['image']
 
 
-
 class LoginForm(forms.Form):
     username = forms.CharField(label=('Username'))
-    password = forms.CharField(
-        label=('Password'), widget=forms.PasswordInput(render_value=False))
+    password = forms.CharField(label=('Password'), widget=forms.PasswordInput(render_value=False))
