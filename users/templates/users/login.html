@@ -1,18 +1,53 @@
 {% extends 'main_site/header.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<div class="container">
-  <h3>Login</h3>
-  <form class="form" method="POST" action="{% url 'login' %}">
+
+<h2 class="blue-text text-center">Login</h2>
+
+<div class="container d-flex justify-content-center align-items-center">
+
+<!-- Material form login -->
+<div class="card col-4" style="background-image: url({% static 'main_site/img/login-bg-img1.png' %}); 
+    padding-top: 15%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;">
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+    <!-- Form -->
+    <form class="text-center" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-dark" type="submit">Login</button>
-    <small class="text-muted ml-2">
-      <a href="{% url 'password_reset' %}">Forgot Password?</a>
-    </small>
-  </form>
-  <small class="text-muted">Need An Account? <a href="{% url 'register' %}">Sign Up Now</a></small>
+      <!-- Email -->
+      <div class="md-form">
+        <input type="email" id="email" name="email" class="form-control blue-text">
+        <label for="email">E-mail</label>
+      </div>
+      <!-- Password -->
+      <div class="md-form">
+        <input type="password" id="password" name="password" class="form-control blue-text">
+        <label for="password">Password</label>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div>
+          <!-- Forgot password -->
+          <a href="{% url 'password_reset' %}">Forgot password?</a>
+        </div>
+      </div>
+      <!-- Sign in button -->
+      <button class="btn btn-outline-blue btn-rounded my-4 waves-effect" type="submit">Sign in</button>
+      <!-- Register -->
+      <p class="text-white-50">Not a member?
+        <a href="{% url 'register' %}">Register Now</a>
+      </p>
+    </form>
+    <!-- Form -->
+  </div>
+</div>
+<!-- Material form login -->
 </div>
 
 {% endblock %}

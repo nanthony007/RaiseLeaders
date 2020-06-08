@@ -26,7 +26,7 @@
 
 <header>
 	<nav class="navbar navbar-expand-md navbar-light bg-white fixed-top py-0">
-		<a class="navbar-brand" href="/">
+		<a class="navbar-brand">
 			<img src="{% static 'main_site/img/RLBW.jpg' %}" alt="No img" style="width: 200px; height: 50px;" />
 		</a>
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
@@ -64,14 +64,15 @@
 
 <body class="pt-5 mt-5 pb-5 mb-5">
 	{% if messages %} {% for message in messages %}
-	<div class="alert alert-{{ message.tags }}">
+	<div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
 		{{ message }}
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
 	</div>
-	{% endfor %} {% endif %} {% block content %} {% endblock %}
+	{% endfor %} {% endif %} 
+	{% block content %} {% endblock %}
 
-	<div class="footer text-center text-light bg-dark mt-5">
-		A cool project.
-	</div>
     <!--
     <script type="text/javascript" src="node_modules/mdbootstrap-pro/js/jquery.min.js"></script>
     <script type="text/javascript" src="node_modules/mdbootstrap-pro/js/popper.min.js"></script>

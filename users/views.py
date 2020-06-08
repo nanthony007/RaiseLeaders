@@ -6,6 +6,28 @@ from django.forms import formset_factory
 from django.contrib.auth.models import User
 from .forms import UserRegistrationForm, ProfileUpdateForm, UserUpdateForm
 from main_site.models import Event, AttendanceTracker
+from django.contrib.auth import authenticate, login, logout
+
+
+def custom_login(request):
+    if request.method == 'POST':
+        user_email = request.POST['email']
+        user_pass = request.POST['password']
+        user = get_object_or_404(User, email=user_email)
+        if user.check_password(user_pass):
+            request.session['username'] = user.username
+            login(request, user)
+            return redirect('calendar')
+            
+        else:
+            # Return an 'invalid login' error message.
+            messages.warning(request, f"Invalid login, please try again.")
+            return render(request, 'users/login.html')
+    if request.user.is_authenticated:
+        messages.warning(request, 'You are already logged in.')
+        return redirect('calendar')
+        
+    return render(request, 'users/login.html')
 
 
 def register(request):
