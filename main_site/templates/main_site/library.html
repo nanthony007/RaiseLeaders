@@ -1,5 +1,7 @@
 {% extends 'main_site/header.html' %}
 
+{% load static %}
+
 {% block content %}
 <style type="text/css">
   .strike {
@@ -39,7 +41,7 @@
   <div class="row d-flex justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3">
     <div class="col my-2">
       <div class="card card-image h-100" 
-      style="background-image: url(https://media.mnn.com/assets/images/2015/06/jumbled-letters.jpg.653x0_q80_crop-smart.jpg); 
+      style="background-image: url({% static 'main_site/img/Term.jpg' %}); 
       background-repeat: no-repeat">
 
       <!-- Content -->
@@ -54,7 +56,7 @@
     </div>
     <div class="col my-2">
       <div class="card card-image h-100" 
-      style="background-image: url(https://www.sportssilhouettes.com/content/images/thumbs/0003028_martial-arts-6-sports-decor-silhouette-decals.gif); 
+      style="background-image: url({% static 'main_site/img/Technique.jpg' %}); 
       background-repeat: no-repeat">
 
       <!-- Content -->
@@ -69,7 +71,7 @@
     </div>
     <div class="col my-2">
       <div class="card card-image h-100" 
-      style="background-image: url(https://stickerart.com.au/images/temp/images-products-1303-0235-karate-kid-kungfu-pose-sticker-decal-w500-c5.png); 
+      style="background-image: url({% static 'main_site/img/Poomsae.png' %}); 
       background-repeat: no-repeat">
 
       <!-- Content -->
@@ -85,7 +87,7 @@
 
     <div class="col my-2">
       <div class="card card-image h-100" 
-      style="background-image: url(https://dhalifestyle.com/wp-content/uploads/2019/12/Cover-Photo-672x372.png); 
+      style="background-image: url({% static 'main_site/img/Workout.png' %}); 
       background-repeat: no-repeat">
 
       <!-- Content -->
@@ -100,7 +102,7 @@
     </div>
     <div class="col my-2">
       <div class="card card-image h-100" 
-      style="background-image: url(https://clip.cookdiary.net/sites/default/files/wallpaper/gymnast-clipart/279111/gymnast-clipart-acrobatic-gymnastics-279111-5830867.gif); 
+      style="background-image: url({% static 'main_site/img/Acrobatics.jpg' %}); 
       background-repeat: no-repeat">
 
       <!-- Content -->
@@ -115,7 +117,7 @@
     </div>
     <div class="col my-2">
       <div class="card card-image h-100" 
-      style="background-image: url(https://davidfullerkarate.files.wordpress.com/2017/06/hardwood_lumber_thickness_002.jpg?w=800); 
+      style="background-image: url({% static 'main_site/img/Extras.png' %}); 
       background-repeat: no-repeat">
 
       <!-- Content -->

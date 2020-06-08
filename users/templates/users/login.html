@@ -1,18 +1,98 @@
 {% extends 'main_site/header.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<div class="container">
-  <h3>Login</h3>
-  <form class="form" method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-dark" type="submit">Login</button>
-    <small class="text-muted ml-2">
-      <a href="{% url 'password_reset' %}">Forgot Password?</a>
-    </small>
-  </form>
-  <small class="text-muted">Need An Account? <a href="{% url 'register' %}">Sign Up Now</a></small>
+
+
+{% comment %} <div class="container d-flex justify-content-center">
+
+<!-- Material form login -->
+<div class="row row-cols-1">
+  <div class="card" style="background-image: url({% static 'main_site/img/login-bg-img1.png' %}); 
+      padding-top: 15%; 
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;">
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-5">
+      <!-- Form -->
+      <form class="text-center" method="post">
+      {% csrf_token %}
+        <!-- Email -->
+        <div class="md-form">
+          <input type="email" id="email" name="email" class="form-control blue-text">
+          <label for="email">E-mail</label>
+        </div>
+        <!-- Password -->
+        <div class="md-form">
+          <input type="password" id="password" name="password" class="form-control blue-text">
+          <label for="password">Password</label>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div>
+            <!-- Forgot password -->
+            <a href="{% url 'password_reset' %}">Forgot password?</a>
+          </div>
+        </div>
+        <!-- Sign in button -->
+        <button class="btn btn-outline-blue btn-rounded my-4 waves-effect" type="submit">Sign in</button>
+        <!-- Register -->
+        <p class="text-white-50">Not a member?
+          <a href="{% url 'register' %}">Register Now</a>
+        </p>
+      </form>
+      <!-- Form -->
+    </div>
+  </div>
+<!-- Material form login -->
 </div>
 
+</div> {% endcomment %}
+
+
+
+<div class="container mt-3">
+<!-- Material form register -->
+  <div class="card z-depth-3" style="background-image: url({% static 'main_site/img/login-bkgd-2.png' %});
+      background-position: center;
+      background-size: cover;"> 
+    <h4 class="card-header white-text text-center">
+        <strong>Raise Leaders Nation</strong>
+    </h4>
+    <!--Card content-->
+ <div class="card-body px-lg-5">
+      <!-- Form -->
+      <form class="text-center" method="post">
+      {% csrf_token %}
+        <!-- Email -->
+        <div class="md-form">
+          <input type="email" id="email" name="email" class="form-control white-text">
+          <label for="email">E-mail</label>
+        </div>
+        <!-- Password -->
+        <div class="md-form">
+          <input type="password" id="password" name="password" class="form-control white-text">
+          <label for="password">Password</label>
+        </div>
+        <!-- Sign in button -->
+        <button class="btn btn-outline-white btn-block btn-rounded waves-effect text-white my-4" type="submit">Login</button>
+        <div class="d-flex justify-content-center">
+          <div>
+            <!-- Forgot password -->
+            <a href="{% url 'password_reset' %}" class="white-text">Forgot password?</a>
+          </div>
+        </div>
+        <!-- Register -->
+        <p class="text-white-50">Not a member? 
+          <a href="{% url 'register' %}" class="white-text">Register Now</a>
+        </p>
+      </form>
+      <!-- Form -->
+    </div>
+</div>
+<!-- Material form register -->
+</div>
 {% endblock %}

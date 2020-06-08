@@ -5,11 +5,17 @@ from .models import Profile
 
 
 class UserRegistrationForm(UserCreationForm):
-    email = forms.EmailField()
-
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ('first_name', 'last_name', 'username', 'password1', 'password2')
+
+    username = forms.EmailField(label='Email', max_length=255)
+
+    def save(self, commit=True):
+        user = super(UserCreationForm, self).save(commit=False)
+        user.email = user.username
+        user.save()
+        return user
 
 
 class UserUpdateForm(forms.ModelForm):
@@ -24,8 +30,3 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
-
-
-class LoginForm(forms.Form):
-    username = forms.CharField(label=('Username'))
-    password = forms.CharField(label=('Password'), widget=forms.PasswordInput(render_value=False))
