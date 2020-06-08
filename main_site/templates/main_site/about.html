@@ -1,5 +1,7 @@
 {% extends 'main_site/header.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="container z-depth-1 my-5 p-5">
@@ -101,7 +103,7 @@
 
 				<!-- Featured image -->
         <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
-          <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/-Insert_image_here-.svg/1280px--Insert_image_here-.svg.png">
+          <img class="img-fluid" src="{% static 'main_site/img/michelle_BW.png' %}">
           <a>
             <div class="mask rgba-white-slight"></div>
           </a>

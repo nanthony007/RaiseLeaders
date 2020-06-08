@@ -7,6 +7,10 @@ def home(request):
     return render(request, 'main_site/home.html')
 
 
+def about(request):
+    return render(request, 'main_site/about.html')
+
+
 def curriculum(request):
     return render(request, 'main_site/curriculum.html')
 
@@ -17,10 +21,6 @@ def library(request):
 
 def calendar(request):
     return render(request, 'main_site/calendar.html')
-
-
-def contact(request):
-    return render(request, 'main_site/contact.html')
 
 
 def terminology(request):
@@ -45,6 +45,3 @@ def acrobatics(request):
 
 def extras(request):
     return render(request, 'main_site/extras.html')
-
-def about(request):
-    return render(request, 'main_site/about.html')
