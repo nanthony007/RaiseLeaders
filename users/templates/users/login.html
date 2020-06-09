@@ -65,17 +65,29 @@
     <!--Card content-->
  <div class="card-body px-lg-5">
       <!-- Form -->
-      <form class="text-center" method="post">
+      <form class="text-center needs-validation" method="post" novalidate>
       {% csrf_token %}
         <!-- Email -->
         <div class="md-form">
-          <input type="email" id="email" name="email" class="form-control white-text">
+          <input type="email" id="email" name="email" class="form-control white-text" required>
           <label for="email">E-mail</label>
+            <div class="valid-feedback">
+            Looks good.
+          </div>
+          <div class="invalid-feedback">
+            Please enter a valid email.
+          </div>
         </div>
         <!-- Password -->
         <div class="md-form">
-          <input type="password" id="password" name="password" class="form-control white-text">
+          <input type="password" id="password" name="password" class="form-control white-text" required>
           <label for="password">Password</label>
+          <div class="valid-feedback">
+            Looks good.
+          </div>
+          <div class="invalid-feedback">
+            Please enter a valid password.
+          </div>
         </div>
         <!-- Sign in button -->
         <button class="btn btn-outline-white btn-block btn-rounded waves-effect text-white my-4" type="submit">Login</button>
@@ -95,4 +107,25 @@
 </div>
 <!-- Material form register -->
 </div>
+
+<script type="text/javascript">
+    (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+    form.addEventListener('submit', function(event) {
+    if (form.checkValidity() === false) {
+    event.preventDefault();
+    event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+    }, false);
+    });
+    }, false);
+    })();
+</script>
+
 {% endblock %}
