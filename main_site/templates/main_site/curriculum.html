@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-  <h4 class="text-center">Quests</h4>
+<div class="container z-depth-1 my-5 p-5">
+    <h3 class="font-weight-bold text-center dark-grey-text pb-2">Curriculum</h3>
+    <hr class="w-header" />
 
 <!-- Button trigger modal-->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalVM">Launch modal</button>
@@ -32,7 +33,7 @@
 
 <!-- Card deck -->
 
-  <div class="card-deck">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 py-5">
 
     <!-- Card -->
     <div class="card card-image mb-4" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
