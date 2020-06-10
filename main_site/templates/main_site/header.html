@@ -67,12 +67,21 @@
 
 <body class="mt-5 pt-3">
 	{% if messages %} {% for message in messages %}
+	{% if 'error' in message.tags %}
+	<div class="alert alert-danger alert-dismissable fade show" role="alert">
+		{{ message }}
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	{% else %}
 	<div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
 		{{ message }}
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
 	</div>
+	{% endif %}
 	{% endfor %} {% endif %} 
 	{% block content %} {% endblock %}
 
