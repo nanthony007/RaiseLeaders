@@ -11,42 +11,40 @@
         <strong>UPDATE YOUR PROFILE</strong>
     </h5>
     <div class="card-body px-lg-5 pt-0">
-      <form class="md-form">
+      <form class="md-form" method="post">
+      {% csrf_token %}
         <div class="row">
           <div class="col-6">
             <input type="email" id="emailInput" name="emailInput" class="form-control md-form" value="{{ user.email }}">
             <label for="emailInput">Email:</label>
           </div>
-          <div class="col-6">
-    <!--Blue select-->
-<select class="mdb-select md-form" searchable="Search here...">
-  <option value="" disabled selected>Choose your country</option>
-  <option value="1">USA</option>
-  <option value="2">Germany</option>
-  <option value="3">France</option>
-  <option value="3">Poland</option>
-  <option value="3">Japan</option>
-</select>
-<label class="mdb-main-label">Label example</label>
-<!--/Blue select-->
-          </div>
         </div>
-        <button class="btn btn-block btn-outline-dark btn-rounded">Save</button>
+        <h3 class="font-weight-bold text-center dark-grey-text pt-3">Avatars</h3>
+        <hr class="w-header pb-3" />
+
+      <!-- Group of material radios -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+        {% for avatar in user.profile.AVATARS %}
+          <div class="text-center py-3">
+            <img src="/static/users/img/Avatars/{{ avatar.0 }}" alt="No img available." height="200px" width="200px">
+            <div class="form-check">
+              {% if avatar.0 == user.profile.avatar %}
+                <input type="radio" class="form-check-input" id="{{ avatar.0 }}" value={{ avatar.0 }} name="avatarRadios" checked>
+              {% else %}
+                <input type="radio" class="form-check-input" id="{{ avatar.0 }}" value={{ avatar.0 }} name="avatarRadios">
+              {% endif %}
+              <label class="form-check-label" for="{{ avatar.0 }}">{{ avatar.1 }}</label>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <button class="btn btn-block btn-outline-dark btn-rounded" type="submit">Save</button>
       </form>
     </div>
   </div>
 </div>        
 
-<script>
-// Material Select Initialization
-// Material Select Destroy
-
-$(document).ready(function() {
-  $('.mdb-select').materialSelect({
-    destroy: true
-  });
-  $('.mdb-select').materialSelect();
-});
-</script>
+</div>
 
 {% endblock %}

@@ -8,6 +8,10 @@
   <h3 class="font-weight-bold text-center dark-grey-text pb-2">Your Profile</h3>
   <hr class="w-header" />  
 
+  <div class="text-center">
+    <img src="{% static 'users/img/Avatars/'|add:user.profile.avatar %}" alt="No avatar available." height="300px" width="300px">
+  </div>
+
   <small>Belt Progress</small>
   {% if belt_progres == 'red' %}
   <div class="text-center">
@@ -31,8 +35,7 @@
         Account Age: {{ account_days }} days <br />
         Classes Attended: {{ user.attending.count }}
       </p>
-      <button class="btn btn-rounded btn-outline-dark">
-        <a class="black-text" href="{% url 'profile_update' %}">Update Profile</a>
+      <a class="btn btn-rounded btn-outline-dark" href="/profile/update">Update Profile</a>
     </div>
     <!-- Modal -->
     <div class="col-sm-6 py-3">

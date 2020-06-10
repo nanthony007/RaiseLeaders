@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.forms import formset_factory
 
 from django.contrib.auth.models import User
-from .forms import UserRegistrationForm, ProfileUpdateForm, UserUpdateForm
 from main_site.models import Event, AttendanceTracker
 from django.contrib.auth import authenticate, login, logout
 
@@ -72,8 +71,7 @@ def profile(request):
             messages.success(request, f"You've successfully attended class!")
             return redirect('profile')
     else:
-        u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.profile)
+        pass
 
     delta = datetime.date.today() - request.user.profile.joined
     if request.user.profile.belt.startswith('Red'):
@@ -113,8 +111,6 @@ def profile(request):
             required_classes *= 15
         belt_progress = (request.user.attending.count() / required_classes) * 100
     context = {
-        'u_form': u_form,
-        'p_form': p_form,
         'account_days': delta.days,
         'belt_progress': belt_progress,
     }
@@ -123,34 +119,20 @@ def profile(request):
 
 @login_required
 def profile_update(request):
-    print(request.user.email)
     if request.method == 'POST':
-        posted_email = request.POST['email']
-        posted_avatar = request.POST['avatar']
+        posted_email = request.POST['emailInput']
+        posted_avatar = request.POST['avatarRadios']
         if request.user.email != posted_email:
             user = get_object_or_404(User, username=request.user.username)
             user.email = posted_email
             user.save()
             messages.success(request, f"Your email has been updated!")
-        if request.user.profile.image != posted_avatar:
+        if request.user.profile.avatar != posted_avatar:
             profile = get_object_or_404(Profile, user=request.user)
-            profile.image = posted_avatar
+            profile.avatar = posted_avatar
             profile.save()
             messages.success(request, f"Your avatar has been updated!")
-        # u_form = UserUpdateForm(request.POST or None, instance=request.user)
-        # p_form = ProfileUpdateForm(
-        #     request.POST or None, request.FILES, instance=request.user.profile)
-        #if u_form.is_valid() and p_form.is_valid():
-            # u_form.save()
-            # p_form.save()
         return redirect('profile')
     else:  # get
         pass
-        #u_form = UserUpdateForm(instance=request.user)
-        #p_form = ProfileUpdateForm(instance=request.user.profile)
-    context = {
-        #'user_email': user_email,
-        #'u_form': u_form,
-        #'p_form': p_form,
-    }
-    return render(request, 'users/profile_update.html', context)
+    return render(request, 'users/profile_update.html')
