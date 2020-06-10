@@ -1,65 +1,41 @@
 {% extends 'main_site/header.html' %}
 
+{% load static %}
+
 {% block content %}
-<style type="text/css">
-  .strike {
-    display: block;
-    text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-  }
 
-  .strike>span {
-    position: relative;
-    display: inline-block;
-  }
+<div class="container z-depth-1 my-5 p-5">
+  <h3 class="font-weight-bold text-center dark-grey-text pb-2">Your Profile</h3>
+  <hr class="w-header" />  
 
-  .strike>span:before,
-  .strike>span:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 9999px;
-    height: 1px;
-    background: black;
-  }
-
-  .strike>span:before {
-    right: 100%;
-    margin-right: 15px;
-  }
-
-  .strike>span:after {
-    left: 100%;
-    margin-left: 15px;
-  }
-</style>
-<div class="container">
-  {% csrf_token %}
-  <h1 class="text-center">Your Profile</h1>
+  <small>Belt Progress</small>
+  {% if belt_progres == 'red' %}
+  <div class="text-center">
+    <p>Your Instructor will superviser your attendance.</p>
+  </div>
+  {% else %}
+    <div class="progress md-progress" style="height:20px">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ belt_progress|floatformat:2 }}%; height:20px" aria-valuenow="{{ belt_progress|floatformat:2 }}" aria-valuemin="0" aria-valuemax="100">
+          {{ belt_progress|floatformat:0 }}%
+        </div>
+    </div>
+  {% endif %}
 
   <div class="row">
     <div class="col-sm-6 py-3">
-      <div class="strike">
-        <span>
-          <h4>Info</h4>
-        </span>
-      </div>
-      <h5>
-        <img class="account-img" src="{{ user.profile.image.url }}" alt="No image">
-        {{ user.username }}
-      </h5>
-      <h5>
-        Email: <small>{{ user.email }}</small>
-      </h5>
-      <p>Update your profile picture <a href="{% url 'profile_update' %}">here</a>!</p>
+      <h3 class="display">User Info</h3>
+      <p>
+        Email: {{ user.email }}  <br />
+        Name: {{ user.first_name }} {{ user.last_name }} <br />
+        Belt: {{ user.profile.belt }} <br />
+        Account Age: {{ account_days }} days <br />
+        Classes Attended: {{ user.attending.count }}
+      </p>
+      <button class="btn btn-rounded btn-outline-dark">
+        <a class="black-text" href="{% url 'profile_update' %}">Update Profile</a>
     </div>
+    <!-- Modal -->
     <div class="col-sm-6 py-3">
-      <div class="strike">
-        <span>
-          <h4>Class Attendance</h4>
-        </span>
-      </div>
       <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -82,22 +58,29 @@
           </div>
         </div>
       </div>
+      <!-- end modal -->
       <div class="text-center">
-        <button type="button" class="btn-dark btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm" disabled>Launch Attendance Tracker</button>
-        <!--
-        <a class="btn btn-dark btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm" disabled>Launch Attendance Tracker</a>
-        -->
+        <button type="button" class="btn btn-outline-dark btn-block btn-rounded" data-toggle="modal" data-target="#modalLoginForm" disabled>Launch Attendance Tracker</button>
+        {% if user.attending.count > 0 %}
+          <img src="{% static 'main_site/img/attendance-badge2.png'%}" alt="No img available." height="200px" width="300px">
+        {% elif user.attending.count > 10 %}
+          <img src="{% static 'main_site/img/attendance-badge3.png'%}" alt="No img available." height="200px" width="300px">
+        {% elif user.attending.count > 50 %}
+          <img src="{% static 'main_site/img/attendance-badge4.png'%}" alt="No img available." height="200px" width="300px">
+        {% elif user.attending.count > 100 %}
+          <img src="{% static 'main_site/img/attendance-badge5.png'%}" alt="No img available." height="200px" width="300px">
+        {% else %}
+          <img src="{% static 'main_site/img/attendance-badge1.png'%}" alt="No img available." height="200px" width="300px">
+        {% endif %}
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-sm-6 py-3">
-      <div class="strike">
-        <span>
-          <h4>Badges</h4>
-        </span>
-      </div>
+
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-6 py-3 text-center">
+      <h4>Other Badges</h4>
       <div class="d-flex justify-content-around">
         <i class="fas fa-ribbon"></i>
         <i class="fas fa-certificate"></i>
@@ -110,6 +93,5 @@
   </div>
 </div>
 
-</div>
 
 {% endblock %}

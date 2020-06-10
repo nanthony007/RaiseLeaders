@@ -1,17 +1,52 @@
 {% extends 'main_site/header.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<div class="container">
-  <form method="POST" enctype="multipart/form-data">
-    <fieldset class="form-group">
-      <legend>Update Profile</legend>
-      {% csrf_token %}
-      {{ u_form.as_p }}
-      {{ p_form.as_p }}
-    </fieldset>
-    <button class="btn btn-dark" type="submit">Update</button>
-  </form>
-</div>
+<div class="container mt-3">
+<!-- Material form register -->
+  <div class="card">
+    <h5 class="card-header elegant-color white-text text-center py-4">
+        <strong>UPDATE YOUR PROFILE</strong>
+    </h5>
+    <div class="card-body px-lg-5 pt-0">
+      <form class="md-form">
+        <div class="row">
+          <div class="col-6">
+            <input type="email" id="emailInput" name="emailInput" class="form-control md-form" value="{{ user.email }}">
+            <label for="emailInput">Email:</label>
+          </div>
+          <div class="col-6">
+    <!--Blue select-->
+<select class="mdb-select md-form" searchable="Search here...">
+  <option value="" disabled selected>Choose your country</option>
+  <option value="1">USA</option>
+  <option value="2">Germany</option>
+  <option value="3">France</option>
+  <option value="3">Poland</option>
+  <option value="3">Japan</option>
+</select>
+<label class="mdb-main-label">Label example</label>
+<!--/Blue select-->
+          </div>
+        </div>
+        <button class="btn btn-block btn-outline-dark btn-rounded">Save</button>
+      </form>
+    </div>
+  </div>
+</div>        
+
+<script>
+// Material Select Initialization
+// Material Select Destroy
+
+$(document).ready(function() {
+  $('.mdb-select').materialSelect({
+    destroy: true
+  });
+  $('.mdb-select').materialSelect();
+});
+</script>
 
 {% endblock %}
