@@ -60,7 +60,7 @@ class Resource(models.Model):
         ("Red/Black", "Red/Black"),
     ]
     category = models.CharField(choices=CATEGORIES, max_length=25)
-    title = models.CharField(max_length=25)
+    title = models.CharField(max_length=50)
     description = models.CharField(max_length=250, null=True, default='Description not available.')
     difficulty = models.CharField(choices=DIFFICULTIES, max_length=25, default="Easy")
     belt_level = models.CharField(choices=BELT_LEVELS, max_length=25, default="White")
