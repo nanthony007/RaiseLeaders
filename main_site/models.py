@@ -58,6 +58,7 @@ class Resource(models.Model):
         ("Brown/Black", "Brown/Black"),
         ("Red", "Red"),
         ("Red/Black", "Red/Black"),
+        ("Candidate", "Candidate"),
     ]
     category = models.CharField(choices=CATEGORIES, max_length=25)
     title = models.CharField(max_length=50)

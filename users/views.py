@@ -74,8 +74,8 @@ def profile(request):
         pass
 
     delta = datetime.date.today() - request.user.profile.joined
-    if request.user.profile.belt.startswith('Red'):
-        belt_progress = 'red'
+    if request.user.profile.belt.startswith('Red') or request.user.profile.belt.startswith('Candidate'):
+        belt_progress = 'advanced'
     else:  # lower belts
         belt = request.user.profile.belt
         required_classes = 24
