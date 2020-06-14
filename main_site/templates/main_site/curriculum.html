@@ -3,104 +3,72 @@
 
 {% block content %}
 
-<div class="container z-depth-1 p-5">
-    <h3 class="font-weight-bold text-center dark-grey-text pb-2">Curriculum</h3>
-    <hr class="w-header" />
-
-<!-- Button trigger modal-->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalVM">Launch modal</button>
-
+{% for obj in object_list %}
 <!--Modal: modalVM-->
-<div class="modal fade" id="modalVM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade" id="modal{{obj.id}}" tabindex="-1" role="dialog" aria-labelledby="modal{{obj.id}}"
   aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-
-    <!--Content-->
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
-
-      <!--Body-->
       <div class="modal-body mb-0 p-0">
         <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-          <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/269269617" allow="autoplay" allowfullscreen></iframe>
+          <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{obj.video_link_id}}" allow="autoplay" allowfullscreen></iframe>
         </div>
       </div>
-
     </div>
-    <!--/.Content-->
-
   </div>
 </div>
-<!--Modal: modalVM-->
+{% endfor %}
 
-<!-- Card deck -->
+<div class="container z-depth-1 p-5">
+  <h3 class="font-weight-bold text-center dark-grey-text pb-2">Curriculum</h3>
+  <hr class="w-header" />
+  <h5>Displaying curriculum items for <strong>{{user.profile.belt}}</strong> belt.</h5>
 
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 py-5">
-
-    <!-- Card -->
-    <div class="card card-image mb-4 mx-3" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
-    background-repeat: no-repeat;
-    background-position: center;">
-
-      <!-- Content -->
-      <div class="d-flex text-dark text-center justify-content-center align-items-center py-5 px-4">
-        <div>
-          <h3 class="card-title pt-5"><strong>Star Block</strong></h3>
-          <p>Description</p>
-          <a class="btn btn-dark">Start Mission <i class="fas fa-angle-double-right"></i></a>
+  <div class="row row-cols-sm-1 row-cols-md-3 row-cols-lg-4 d-flex justify-content-around">
+    {% for obj in object_list %}
+    {% if obj.category != 'Workouts' %}
+    <!--Card-->
+    <div class="card card-image m-3" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
+      background-repeat: no-repeat; background-position: center;">
+      <div class="d-flex text-dark text-center justify-content-center mask flex-center rgba-black-strong">
+        <div>  <!--Required for card formatting-->
+          <h3 class="card-title text-white"><strong>{{ obj.title }}</strong></h3>
+          <!-- <p>{{ obj.description }}</p> -->
+          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal{{obj.id}}">START</button>
         </div>
       </div>
     </div>
-    <!-- Card -->
-
-    <!-- Card -->
-    <div class="card card-image mb-4 mx-3" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
-background-repeat: no-repeat;
-background-position: center;">
-
-      <!-- Content -->
-      <div class="d-flex text-dark text-center justify-content-center align-items-center py-5 px-4">
-        <div>
-          <h3 class="card-title pt-5"><strong>T1 6-steps</strong></h3>
-          <p>Description</p>
-          <a class="btn btn-dark">Start Mission <i class="fas fa-angle-double-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <!-- Card -->
-
-    <!-- Card -->
-    <div class="card card-image mb-4 mx-3" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
-background-repeat: no-repeat;
-background-position: center;">
-
-      <!-- Content -->
-      <div class="d-flex text-dark text-center justify-content-center align-items-center py-5 px-4">
-        <div>
-          <h3 class="card-title pt-5"><strong>Palm Strike</strong></h3>
-          <p>Description</p>
-          <a class="btn btn-dark">Start Mission <i class="fas fa-angle-double-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <!-- Card -->
-
-    <!-- Card -->
-    <div class="card card-image mb-4 mx-3" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
-background-repeat: no-repeat;
-background-position: center;">
-
-      <!-- Content -->
-      <div class="d-flex text-dark text-center justify-content-center align-items-center py-5 px-4">
-        <div>
-          <h3 class="card-title pt-5"><strong>Middle Punch</strong></h3>
-          <p>Description</p>
-          <a class="btn btn-dark">Start Mission <i class="fas fa-angle-double-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <!-- Card -->
+    <!--Card-->
+    {% endif %}
+    {% empty %}
+    <p>There are no items for your current belt.</p>
+    {% endfor %}
   </div>
+</div>
 
+<div class="container z-depth-1 p-5">
+  <h3 class="font-weight-bold text-center dark-grey-text pb-2">Physical Requirements</h3>
+  <hr class="w-header" />  
+  <div class="row row-cols-sm-1 row-cols-md-3 row-cols-lg-4 d-flex justify-content-around">
+    {% for obj in object_list %}
+    {% if obj.category == 'Workouts' %}
+    <!--Card-->
+    <div class="card card-image m-3" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
+      background-repeat: no-repeat; background-position: center;">
+      <div class="d-flex text-dark text-center justify-content-center mask flex-center rgba-black-strong">
+        <div>  <!--Required for card formatting--> 
+          <h3 class="card-title text-white"><strong>{{ obj.title }}</strong></h3>
+          <!-- <p>{{ obj.description }}</p> -->
+          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal{{obj.id}}">START</button>
+        </div>
+      </div>
+    </div>
+    <!--Card-->
+    {% endif %}
+    {% empty %}
+    <p>There are no items for your current belt.</p>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
