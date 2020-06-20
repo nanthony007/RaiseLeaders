@@ -19,7 +19,7 @@ class CurriculumnListView(ListView):
     template_name = 'main_site/curriculum.html'
     
     def get_queryset(self):
-        qs = Resource.objects.filter(belt_level=self.request.user.profile.belt).order_by('title')
+        qs = Resource.objects.filter(curriculum=True).filter(belt_level=self.request.user.profile.belt).order_by('title')
         return qs
 
     def get_context_data(self, **kwargs):
@@ -30,8 +30,6 @@ class CurriculumnListView(ListView):
         return context
 
 
-
-
 def library(request):
     if not request.user.is_authenticated:
         messages.error(request, f"You need to be logged in to see this page.  Please login or register.")
@@ -39,50 +37,26 @@ def library(request):
     return render(request, 'main_site/library.html')
 
 
+class LibraryCategory(ListView):
+    model = Resource 
+    template_name = 'main_site/library_category.html'
+
+    def get_queryset(self, **kwargs):
+        cat = self.kwargs.get('category')
+        if cat == 'poomsae' or cat == 'workouts':
+            qs = Resource.objects.filter(curriculum=False).filter(category=cat.capitalize())
+            return qs
+        else:
+            qs = Resource.objects.filter(category=cat.capitalize()).order_by('title')
+            return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_name'] = self.kwargs.get('category').capitalize()
+        return context
+
 def calendar(request):
     if not request.user.is_authenticated:
         messages.error(request, f"You need to be logged in to see this page.  Please login or register.")
         return redirect('login')
     return render(request, 'main_site/calendar.html')
-
-
-def terminology(request):
-    if not request.user.is_authenticated:
-        messages.error(request, f"You need to be logged in to see this page.  Please login or register.")
-        return redirect('login')
-    return render(request, 'main_site/terminology.html')
-
-
-def strikes(request):
-    if not request.user.is_authenticated:
-        messages.error(request, f"You need to be logged in to see this page.  Please login or register.")
-        return redirect('login')
-    return render(request, 'main_site/strikes.html')
-
-
-def tkd_forms(request):
-    if not request.user.is_authenticated:
-        messages.error(request, f"You need to be logged in to see this page.  Please login or register.")
-        return redirect('login')
-    return render(request, 'main_site/tkd_forms.html')
-
-
-def workouts(request):
-    if not request.user.is_authenticated:
-        messages.error(request, f"You need to be logged in to see this page.  Please login or register.")
-        return redirect('login')
-    return render(request, 'main_site/workouts.html')
-
-
-def acrobatics(request):
-    if not request.user.is_authenticated:
-        messages.error(request, f"You need to be logged in to see this page.  Please login or register.")
-        return redirect('login')
-    return render(request, 'main_site/acrobatics.html')
-
-
-def extras(request):
-    if not request.user.is_authenticated:
-        messages.error(request, f"You need to be logged in to see this page.  Please login or register.")
-        return redirect('login')
-    return render(request, 'main_site/extras.html')
