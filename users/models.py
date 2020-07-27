@@ -23,6 +23,8 @@ class Profile(models.Model):
         ("Brown/Black", "Brown/Black"),
         ("Red", "Red"),
         ("Red/Black", "Red/Black"),
+        ("Candidate", "Candidate"),
+        ("Black", "Black"),
     ]
     AVATARS = [
         ('blue_ninja.png', 'Blue Ninja 1'),
