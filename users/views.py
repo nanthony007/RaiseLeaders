@@ -62,6 +62,10 @@ def profile(request):
         if request.POST['code']:
             code = request.POST['code']
             event = get_object_or_404(Event, class_code=code)
+            event_set = set(request.user.attending.distinct('event').values_list('event_id__class_title', flat=True))
+            if event.class_title in event_set:
+                messages.error(request, f"You've already attended this event, please use another code.")
+                return redirect('profile')
             attend = AttendanceTracker(
                 event=event,
                 attendee=request.user,
@@ -109,7 +113,7 @@ def profile(request):
             required_classes *= 14
         elif belt == 'Brown/Black':
             required_classes *= 15
-        belt_progress = (request.user.attending.count() / required_classes) * 100
+        belt_progress = (request.user.attending.distinct('event').count() / required_classes) * 100
     context = {
         'account_days': delta.days,
         'belt_progress': belt_progress,
