@@ -11,8 +11,9 @@
         <div class="modal-content">
             <div class="modal-body mb-0 p-0">
                 <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                    <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{obj.video_link_id}}?quality=1080p"
-                        allow="autoplay" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item"
+                        src="https://player.vimeo.com/video/{{obj.video_link_id}}?quality=1080p" allow="autoplay"
+                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -24,19 +25,28 @@
     <h3 class="font-weight-bold text-center dark-grey-text pb-2">{{ page_name }}</h3>
     <hr class="w-header" />
 
+    {% if page_name == 'Exercises' %}
+    <div class="d-flex justify-content-center">
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/videoseries?list=PLzoKH6eo7xpPV_K_sRHzkbkVDmNEbpUM0" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+    {% endif %}
+
     <div class="row row-cols-sm-1 row-cols-md-3 row-cols-lg-4 d-flex justify-content-around">
         {% for obj in object_list %}
         <!--Card-->
-    <div class="card card-image m-3" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
+        <div class="card card-image m-3" style="background-image: url({% static 'main_site/img/RLBWlogo.jpg' %}); 
         background-repeat: no-repeat; background-position: center;">
-        <div class="d-flex text-center mask flex-center rgba-black-strong p-3">
+            <div class="d-flex text-center mask flex-center rgba-black-strong p-3">
                 <!--Required for card formatting-->
                 <div>
                     <h3 class="card-title text-white"><strong>{{ obj.title }}</strong></h3>
                     <button type="button" class="btn btn-dark" data-toggle="modal"
                         data-target="#modal{{obj.id}}">VIEW</button>
                     <p class="text-white">
-                    Difficulty: {{ obj.difficulty }}
+                        Difficulty: {{ obj.difficulty }}
                     </p>
                 </div>
             </div>
