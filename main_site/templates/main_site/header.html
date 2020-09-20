@@ -2,32 +2,33 @@
 <html lang="en">
 {% load static %}
 {% load pwa %}
+
 <head>
-	{% progressive_web_app_meta %} 
+	{% progressive_web_app_meta %}
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!--
+	<!--
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link rel="stylesheet" href="node_modules/mdbootstrap-pro/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/mdbootstrap-pro/css/mdb.min.css">
     -->
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Google Fonts Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{% static 'main_site/css/bootstrap.min.css' %}">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="{% static 'main_site/css/mdb.min.css' %}">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<!-- Google Fonts Roboto -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="{% static 'main_site/css/bootstrap.min.css' %}">
+	<!-- Material Design Bootstrap -->
+	<link rel="stylesheet" href="{% static 'main_site/css/mdb.min.css' %}">
 	<!-- MDBootstrap Steppers Pro  -->
 	<link href="{% static 'main_site/css/addons-pro/steppers.min.css' %}" rel="stylesheet">
 	<title>Raise Leaders</title>
 </head>
 
 <header>
-{% block nav%}
+	{% block nav%}
 	<nav class="navbar navbar-expand-md navbar-light bg-white fixed-top py-0">
 		<a class="navbar-brand">
 			<img src="{% static 'main_site/img/RLBW.jpg' %}" alt="No img" style="width: 200px; height: 50px;" />
@@ -49,6 +50,12 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/calendar">Calendar</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/ninja-board">Ninja Board
+						<span class="badge badge-pill badge-danger">NEW!</span>
+					</a>
+
+				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				{% if user.is_authenticated %}
@@ -62,7 +69,7 @@
 			</ul>
 		</div>
 	</nav>
-{% endblock %}
+	{% endblock %}
 </header>
 
 <body class="mt-5 pt-3">
@@ -82,17 +89,17 @@
 		</button>
 	</div>
 	{% endif %}
-	{% endfor %} {% endif %} 
+	{% endfor %} {% endif %}
 	{% block content %} {% endblock %}
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="{% static 'main_site/js/jquery.min.js' %}"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="{% static 'main_site/js/popper.min.js' %}"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{% static 'main_site/js/bootstrap.min.js' %}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{% static 'main_site/js/mdb.min.js' %}"></script>
+	<!-- jQuery -->
+	<script type="text/javascript" src="{% static 'main_site/js/jquery.min.js' %}"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="{% static 'main_site/js/popper.min.js' %}"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="{% static 'main_site/js/bootstrap.min.js' %}"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="{% static 'main_site/js/mdb.min.js' %}"></script>
 	<!-- MDBootstrap Steppers Pro  -->
 	<script type="text/javascript" src="{% static 'main_site/js/addons-pro/steppers.min.js' %}"></script>
 </body>
