@@ -30,6 +30,7 @@ class Resource(models.Model):
         ("Techniques", "Techniques"),
         ("Poomsae", "Poomsae"),
         ("Workouts", "Workouts"),
+        ("Exercises", "Exercises"),
         ("Acrobatics", "Acrobatics"),
         ("Extras", "Extras"),
     ]
