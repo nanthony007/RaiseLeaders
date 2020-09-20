@@ -57,7 +57,7 @@ class LibraryCategory(ListView):
 
     def get_queryset(self, **kwargs):
         cat = self.kwargs.get("category")
-        if cat == "poomsae" or cat == "workouts":
+        if cat == "poomsae" or cat == "exercises":
             qs = Resource.objects.filter(curriculum=False).filter(
                 category=cat.capitalize()
             )
@@ -83,4 +83,4 @@ def calendar(request):
 
 
 def ninja_board(request):
-    return render(request, template_name="ninjaboard.html")
+    return render(request, template_name="main_site/ninjaboard.html")

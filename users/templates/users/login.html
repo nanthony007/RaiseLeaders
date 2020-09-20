@@ -5,23 +5,20 @@
 {% block content %}
 
 <div class="container mt-3">
-<!-- Material form register -->
-  <div class="card z-depth-3" style="background-image: url({% static 'main_site/img/login-bkgd-2.png' %});
-      background-position: center;
-      background-size: cover;"> 
-    <h4 class="card-header white-text text-center">
-        <strong>Raise Leaders Nation</strong>
-    </h4>
+  <!-- Material form register -->
+  <div class="card z-depth-3" style="background-image: url({% static 'main_site/img/Login_form.png' %});
+      background-size: cover; height: 500px;">
+
     <!--Card content-->
- <div class="card-body px-lg-5">
+    <div class="card-body pt-5 mt-5 px-lg-5">
       <!-- Form -->
-      <form class="text-center needs-validation" method="post" novalidate>
-      {% csrf_token %}
+      <form class="text-center needs-validation pt-3 mt-3" method="post" novalidate>
+        {% csrf_token %}
         <!-- Email -->
         <div class="md-form">
           <input type="email" id="email" name="email" class="form-control white-text" required>
           <label for="email">E-mail</label>
-            <div class="valid-feedback">
+          <div class="valid-feedback">
             Looks good.
           </div>
           <div class="invalid-feedback">
@@ -40,7 +37,8 @@
           </div>
         </div>
         <!-- Sign in button -->
-        <button class="btn btn-outline-white btn-block btn-rounded waves-effect text-white my-4" type="submit">Login</button>
+        <button class="btn btn-outline-white btn-block btn-rounded waves-effect text-white my-4"
+          type="submit">Login</button>
         <div class="d-flex justify-content-center">
           <div>
             <!-- Forgot password -->
@@ -48,34 +46,34 @@
           </div>
         </div>
         <!-- Register -->
-        <p class="text-white-50">Not a member? 
+        <p class="text-white-50">Not a member?
           <a href="{% url 'register' %}" class="white-text">Register Now</a>
         </p>
       </form>
       <!-- Form -->
     </div>
-</div>
-<!-- Material form register -->
+  </div>
+  <!-- Material form register -->
 </div>
 
 <script type="text/javascript">
-    (function() {
+  (function () {
     'use strict';
-    window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-    form.addEventListener('submit', function(event) {
-    if (form.checkValidity() === false) {
-    event.preventDefault();
-    event.stopPropagation();
-    }
-    form.classList.add('was-validated');
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
     }, false);
-    });
-    }, false);
-    })();
+  })();
 </script>
 
 {% endblock %}
