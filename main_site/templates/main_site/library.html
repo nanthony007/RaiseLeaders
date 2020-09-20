@@ -1,132 +1,109 @@
-{% extends 'main_site/header.html' %} {% load static %} {% block content %}
+{% extends 'main_site/header.html' %}
+
+{% load static %}
+
+{% block content %}
 
 <div class="container z-depth-1 p-5">
-	<h3 class="font-weight-bold text-center dark-grey-text pb-2">Library</h3>
-	<hr class="w-header" />
+  <h3 class="font-weight-bold text-center dark-grey-text pb-2">Library</h3>
+  <hr class="w-header" />
 
-	<div class="row d-flex justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3">
-		<div class="col my-2">
-			<div
-				class="card card-image h-100"
-				style="
-					background-image: url({%static'main_site/img/Term.jpg'%});
-					background-repeat: no-repeat;
-				"
-			>
-				<!-- Content -->
-				<div
-					class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5"
-				>
-					<div>
-						<h3 class="card-title pt-2"><strong>Terminiology</strong></h3>
-						<p>Learn about TKD terms both in English and Korean!</p>
-						<a href="terminology/" class="btn btn-light">Click Here</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col my-2">
-			<div
-				class="card card-image h-100"
-				style="
-					background-image: url({%static'main_site/img/Technique.jpg'%});
-					background-repeat: no-repeat;
-				"
-			>
-				<!-- Content -->
-				<div
-					class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5"
-				>
-					<div>
-						<h3 class="card-title pt-2"><strong>Techniques</strong></h3>
-						<p>Examples of stances, kicks, and hand strikes.</p>
-						<a href="techniques/" class="btn btn-light">Click Here</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col my-2">
-			<div
-				class="card card-image h-100"
-				style="
-					background-image: url({%static'main_site/img/Poomsae.png'%});
-					background-repeat: no-repeat;
-				"
-			>
-				<!-- Content -->
-				<div
-					class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5"
-				>
-					<div>
-						<h3 class="card-title pt-2"><strong>Poomsae</strong></h3>
-						<p>Learn or review all of your forms here at any time.</p>
-						<a href="poomsae/" class="btn btn-light">Click Here</a>
-					</div>
-				</div>
-			</div>
-		</div>
+  <div class="row d-flex justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div class="col my-2">
+      <div class="card card-image h-100" style="background-image: url({% static 'main_site/img/Term.jpg' %}); 
+      background-repeat: no-repeat">
 
-		<div class="col my-2">
-			<div
-				class="card card-image h-100"
-				style="
-					background-image: url({%static'main_site/img/Workout.png'%});
-					background-repeat: no-repeat;
-				"
-			>
-				<!-- Content -->
-				<div
-					class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5"
-				>
-					<div>
-						<h3 class="card-title pt-2"><strong>Drills/Exercises</strong></h3>
-						<p>Get faster and stronger with these workouts.</p>
-						<a href="exercises/" class="btn btn-light">Click Here</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col my-2">
-			<div
-				class="card card-image h-100"
-				style="
-					background-image: url({%static'main_site/img/Acrobatics.jpg'%});
-					background-repeat: no-repeat;
-				"
-			>
-				<!-- Content -->
-				<div
-					class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5"
-				>
-					<div>
-						<h3 class="card-title pt-2"><strong>Acrobatics</strong></h3>
-						<p>Simple to advanced gymnastics and tricking.</p>
-						<a href="acrobatics/" class="btn btn-light">Click Here</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col my-2">
-			<div
-				class="card card-image h-100"
-				style="
-					background-image: url({%static'main_site/img/Extras.png'%});
-					background-repeat: no-repeat;
-				"
-			>
-				<!-- Content -->
-				<div
-					class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5"
-				>
-					<div>
-						<h3 class="card-title pt-2"><strong>Extras</strong></h3>
-						<p>Learn how to build your own kicking pad and more!</p>
-						<a href="extras/" class="btn btn-light">Click Here</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Content -->
+        <div
+          class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Terminiology</strong></h3>
+            <p>Learn about TKD terms both in English and Korean!</p>
+            <a href="terminology/" class="btn btn-light">Click Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col my-2">
+      <div class="card card-image h-100" style="background-image: url({% static 'main_site/img/Technique.jpg' %}); 
+      background-repeat: no-repeat">
+
+        <!-- Content -->
+        <div
+          class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Techniques</strong></h3>
+            <p>Examples of stances, kicks, and hand strikes.</p>
+            <a href="techniques/" class="btn btn-light">Click Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col my-2">
+      <div class="card card-image h-100" style="background-image: url({% static 'main_site/img/Poomsae.png' %}); 
+      background-repeat: no-repeat">
+
+        <!-- Content -->
+        <div
+          class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Poomsae</strong></h3>
+            <p>Learn or review all of your forms here at any time.</p>
+            <a href="poomsae/" class="btn btn-light">Click Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col my-2">
+      <div class="card card-image h-100" style="background-image: url({% static 'main_site/img/Workout.png' %}); 
+      background-repeat: no-repeat">
+
+        <!-- Content -->
+        <div
+          class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Drills/Exercises</strong></h3>
+            <p>Get faster and stronger with these workouts.</p>
+            <a href="exercises/" class="btn btn-light">Click Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col my-2">
+      <div class="card card-image h-100" style="background-image: url({% static 'main_site/img/Acrobatics.jpg' %}); 
+      background-repeat: no-repeat">
+
+        <!-- Content -->
+        <div
+          class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Acrobatics</strong></h3>
+            <p>Simple to advanced gymnastics and tricking.</p>
+            <a href="acrobatics/" class="btn btn-light">Click Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col my-2">
+      <div class="card card-image h-100" style="background-image: url({% static 'main_site/img/Extras.png' %}); 
+      background-repeat: no-repeat">
+
+        <!-- Content -->
+        <div
+          class="text-white text-center d-flex align-items-around justify-content-center rgba-black-strong py-5 px-5">
+          <div>
+            <h3 class="card-title pt-2"><strong>Extras</strong></h3>
+            <p>Learn how to build your own kicking pad and more!</p>
+            <a href="extras/" class="btn btn-light">Click Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 </div>
 
 {% endblock %}
