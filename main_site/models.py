@@ -5,7 +5,9 @@ from django.contrib.auth.models import User
 
 
 def create_code():
-    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(5))
+    return "".join(
+        random.choice(string.ascii_letters + string.digits) for _ in range(5)
+    )
 
 
 class Event(models.Model):
@@ -19,8 +21,12 @@ class Event(models.Model):
 
 
 class AttendanceTracker(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='attendants')
-    attendee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='attending')
+    event = models.ForeignKey(
+        Event, on_delete=models.CASCADE, related_name="attendants"
+    )
+    attendee = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="attending"
+    )
     is_attending = models.BooleanField(default=False)
 
 
@@ -64,9 +70,17 @@ class Resource(models.Model):
     ]
     category = models.CharField(choices=CATEGORIES, max_length=25)
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=250, null=True, default='Description not available.')
+    description = models.CharField(
+        max_length=250, null=True, default="Description not available."
+    )
     difficulty = models.CharField(choices=DIFFICULTIES, max_length=25, default="Easy")
     belt_level = models.CharField(choices=BELT_LEVELS, max_length=25, default="White")
     curriculum = models.BooleanField()
     video_link_id = models.IntegerField()
 
+
+class NinjaItem(models.Model):
+    item_id = models.AutoField(primary_key=True)
+    text = models.CharField(max_length=300)
+    date = models.DateField(auto_now=True)
+    media = models.ImageField(upload_to="ninja_items", blank=True)

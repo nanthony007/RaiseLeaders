@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.generic.list import ListView
 
-from .models import Resource
+from .models import Resource, NinjaItem
 
 
 # Create your views here.
@@ -82,5 +82,20 @@ def calendar(request):
     return render(request, "main_site/calendar.html")
 
 
-def ninja_board(request):
-    return render(request, template_name="main_site/ninjaboard.html")
+class NinjaBoard(ListView):
+    model = NinjaItem
+    template_name = "main_site/ninjaboard.html"
+
+    def get_queryset(self):
+        qs = NinjaItem.objects.all().order_by("-date")
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if not self.request.user.is_authenticated:
+            messages.error(
+                self.request,
+                f"You need to be logged in to see this page.  Please login or register.",
+            )
+            return redirect("login")
+        return context

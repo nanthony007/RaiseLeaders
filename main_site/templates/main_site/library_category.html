@@ -50,7 +50,8 @@
         {% for obj in object_list %}
         <!--Card-->
         <div class="card card-image m-3" style="background-image: url({% static 'main_site/img/cardview2.png' %}); 
-        background-repeat: no-repeat; height: 250px;">
+        background-repeat: no-repeat; height: 250px; cursor: pointer;" data-toggle="modal"
+            data-target="#modal{{obj.id}}">
             <div class="d-flex p-3">
                 <!--Required for card formatting-->
                 <div>

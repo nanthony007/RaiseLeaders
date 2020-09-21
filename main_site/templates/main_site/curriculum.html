@@ -32,8 +32,9 @@
     {% if obj.category != 'Exercises' %}
     <!--Card-->
     <div class="card card-image m-3" style="background-image: url({% static 'main_site/img/main_card_bg.png' %}); 
-      background-repeat: no-repeat; background-position: center; height: 250px;">
-      <div class="d-flex text-dark p-3">
+      background-repeat: no-repeat; background-position: center; height: 250px; cursor: pointer;" data-toggle="modal"
+      data-target="#modal{{obj.id}}">
+      <div class="d-flex p-3">
         <div>
           <!--Required for card formatting-->
           <h3 class="card-title text-white"><strong>{{ obj.title }}</strong></h3>
@@ -60,7 +61,8 @@
     {% if obj.category == 'Exercises' %}
     <!--Card-->
     <div class="card card-image m-3" style="background-image: url({% static 'main_site/img/main_card_bg.png' %}); 
-      background-repeat: no-repeat; background-position: center; height: 250px;">
+      background-repeat: no-repeat; background-position: center; height: 250px; cursor: pointer;" data-toggle="modal"
+      data-target="#modal{{obj.id}}">
       <div class="d-flex text-dark p-3">
         <div>
           <!--Required for card formatting-->

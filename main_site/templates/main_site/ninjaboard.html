@@ -3,10 +3,38 @@
 {% load static %}
 
 {% block content %}
-<div>
-    <h1>Hi ninja board</h1>
+<div class="container">
+    <img class="header-image pb-3" src="{% static 'main_site/img/h_ninjaboard.png' %}">
+
+    <div class="card-columns">
+        {% for item in object_list %}
+        <!-- Card -->
+        <div class="card card-cascade narrower">
+            {% if item.media %}
+            <!-- Card image -->
+            <div class="view view-cascade">
+                <!-- Title -->
+                <img class="header-image" src="/media/{{item.media}}" alt="nothing">
+            </div>
+            {% endif %}
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+                <!-- Text -->
+                <blockquote class="blockquote mb-0 card-body text-right">
+                    <p>{{item.text}}</p>
+                    <footer class="blockquote-footer">
+                        <small class="text-muted">
+                            {{item.date}}
+                        </small>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        <!-- Card -->
+        {% endfor %}
+
+    </div>
 </div>
-<img class="header-image pb-3" src="{% static 'main_site/img/h_ninjaboard.png' %}">
 
 
 {% endblock %}

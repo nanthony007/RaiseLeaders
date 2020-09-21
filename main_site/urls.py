@@ -10,5 +10,5 @@ urlpatterns = [
     path(
         "library/<str:category>/", views.LibraryCategory.as_view(), name="category_view"
     ),
-    path("ninja-board/", views.ninja_board, name="ninja-board"),
+    path("ninja-board/", views.NinjaBoard.as_view(), name="ninja-board"),
 ]
