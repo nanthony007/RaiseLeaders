@@ -58,8 +58,10 @@ class LibraryCategory(ListView):
     def get_queryset(self, **kwargs):
         cat = self.kwargs.get("category")
         if cat == "poomsae" or cat == "exercises":
-            qs = Resource.objects.filter(curriculum=False).filter(
-                category=cat.capitalize()
+            qs = (
+                Resource.objects.filter(curriculum=False)
+                .filter(category=cat.capitalize())
+                .order_by("title")
             )
             return qs
         else:

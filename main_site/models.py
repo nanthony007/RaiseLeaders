@@ -5,9 +5,8 @@ from django.contrib.auth.models import User
 
 
 def create_code():
-    return "".join(
-        random.choice(string.ascii_letters + string.digits) for _ in range(5)
-    )
+    word_choices = ["ninja", "dragon", "warrior", "quick", "cool"]
+    return f"{random.choice(word_choices)}{random.randint(0, 1000)}"
 
 
 class Event(models.Model):
