@@ -41,7 +41,7 @@ jupyter-core==4.6.1
 jupyter-highlight-selected-word==0.2.0
 jupyter-latex-envs==1.4.6
 jupyter-nbextensions-configurator==0.4.1
-jupyterlab==1.2.0
+jupyterlab==1.2.21
 jupyterlab-server==1.0.6
 lazy-object-proxy==1.4.2
 lxml==4.6.2
