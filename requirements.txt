@@ -54,7 +54,7 @@ nbformat==4.4.0
 nodejs==0.1.1
 notebook==6.1.5
 npm==0.1.1
-numpy==1.18.1
+numpy==1.22.0
 optional-django==0.1.0
 pandas==0.25.3
 pandocfilters==1.4.2
